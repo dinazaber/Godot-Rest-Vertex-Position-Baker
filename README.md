@@ -2,6 +2,7 @@
 
 In my game, I rely heavily on shaders that depend on initial vertex positions. A problem occurred when using meshes with a Skeleton3D: bone animations dynamically transform the vertex positions, causing vertex position shaders to behave unexpectedly.
 This Godot 4 import script recursively traverses your imported scene and bakes the base rest position of every vertex directly into the CUSTOM1 vertex attribute channel for **each** mesh it finds. You can then reference CUSTOM1.xyz in your shaders to access the original, un-deformed mesh coordinates regardless of skeletal animation.
+In addition, this script keeps original UV1 and UV2 maps, vertex colors and the CUSTOM0 slot.
 
 The script:
 
